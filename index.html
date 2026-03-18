@@ -5,6 +5,10 @@
     <title>Collège Privé EBENEZER des AD de Bimbresso</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<div id="lightbox" class="lightbox">
+    <span onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img">
+</div>
 <body>
 
 <!-- HEADER -->
@@ -145,14 +149,29 @@
 </section>
 
 <!-- IMAGES -->
-<section id="images" class="gallery-section">
-    <h2>Galerie</h2>
+<<section id="images" class="gallery-section">
 
-    <div class="gallery">
-        <img src="images/photo1.jpg" alt="Activités collège">
-        <img src="images/photo2.jpg" alt="Salle de classe">
-        <img src="images/photo3.jpg" alt="Élèves">
-    </div>
+<h2>Galerie du collège</h2>
+
+<div class="gallery">
+
+<div class="gallery-item">
+    <<img src="images/photo1.jpg" onclick="openLightbox(this.src)">
+    <span>Activités collège</span>
+</div>
+
+<div class="gallery-item">
+    <img src="images/photo2.jpg" onclick="openLightbox(this.src)">
+    <span>Salle de classe</span>
+</div>
+
+<div class="gallery-item">
+    <img src="images/photo3.jpg" onclick="openLightbox(this.src)">
+    <span>Élèves</span>
+</div>
+
+</div>
+
 </section>
 
 <!-- LOCALISATION -->
@@ -248,6 +267,16 @@ function sendToWhatsApp(event){
     let whatsappURL = "https://wa.me/2250717925850text=" + message;
 
     window.open(whatsappURL, "_blank");
+}
+</script>
+<script>
+function openLightbox(src){
+    document.getElementById("lightbox").style.display="flex";
+    document.getElementById("lightbox-img").src=src;
+}
+
+function closeLightbox(){
+    document.getElementById("lightbox").style.display="none";
 }
 </script>
 </body>
